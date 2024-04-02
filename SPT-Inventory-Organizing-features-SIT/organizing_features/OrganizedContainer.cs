@@ -25,9 +25,9 @@ namespace InventoryOrganizingFeatures
         public const string OrderParamPrefix = "#:";
 
         public string[] Params { get; }
-        public CompoundItem TargetItem { get; }
+        public LootItemClass TargetItem { get; }
         public InventoryController Controller { get; }
-        public CompoundItem SourceItem { get; }
+        public LootItemClass SourceItem { get; }
         public List<Item> ValidItems
         {
             get
@@ -57,7 +57,7 @@ namespace InventoryOrganizingFeatures
             }
         }
 
-        public OrganizedContainer(CompoundItem targetItem, CompoundItem sourceItem, InventoryController controller)
+        public OrganizedContainer(LootItemClass targetItem, LootItemClass sourceItem, InventoryController controller)
         {
             TargetItem = targetItem;
             Controller = controller;

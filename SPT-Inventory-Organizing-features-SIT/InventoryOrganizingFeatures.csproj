@@ -47,17 +47,17 @@
 			<HintPath>..\References\UnityEngine.UI.dll</HintPath>
 		</Reference>
 		<Reference Include="StayInTarkov.dll">
-		  <HintPath>..\References\StayInTarkov.dll</HintPath>
+    <HintPath>..\References\StayInTarkov.dll</HintPath>
 		</Reference>
 		<Reference Include="0Harmony">
-		  <HintPath>..\References\0Harmony.dll</HintPath>
+    <HintPath>..\References\0Harmony.dll</HintPath>
 		</Reference>
 		<Reference Include="BepInEx">
-		  <HintPath>..\References\BepInEx.dll</HintPath>
+    <HintPath>..\References\BepInEx.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-	  <Exec Command="COPY &quot;$(TargetDir)$(TargetName)$(TargetExt)&quot; &quot;$(SolutionDir)Ref\plugins&quot;" />
+   <Exec Command="COPY &quot;$(TargetDir)$(TargetName)$(TargetExt)&quot; &quot;$(SolutionDir)..\Plugins&quot;" />
 	</Target>
 </Project>

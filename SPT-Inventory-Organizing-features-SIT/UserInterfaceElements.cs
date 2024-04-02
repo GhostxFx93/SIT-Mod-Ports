@@ -21,7 +21,7 @@ namespace InventoryOrganizingFeatures
         public static Button OrganizeButtonTrader { get; set; } = null;
         public static Sprite OrganizeSprite { get; set; } = null;
 
-        public static Button SetupOrganizeButton(Button sourceForCloneButton, CompoundItem item, InventoryController controller)
+        public static Button SetupOrganizeButton(Button sourceForCloneButton, LootItemClass item, InventoryController controller)
         {
             var clone = GameObject.Instantiate(sourceForCloneButton, sourceForCloneButton.transform.parent);
             clone.onClick.RemoveAllListeners();
@@ -107,7 +107,7 @@ namespace InventoryOrganizingFeatures
                     }
                     if (child.name.Equals("Text"))
                     {
-                        child.GetComponent<CustomTextMeshProUGUI>().text = "ORG.";
+                        child.GetComponent<TextMeshProUGUI>().text = "ORG.";
                     }
                 }
             }
@@ -118,7 +118,7 @@ namespace InventoryOrganizingFeatures
         }
 
         private const string DefaultInventoryId = "55d7217a4bdc2d86028b456d";
-        public static Button SetupTakeOutButton(Button sourceForCloneButton, CompoundItem item, InventoryController controller)
+        public static Button SetupTakeOutButton(Button sourceForCloneButton, LootItemClass item, InventoryController controller)
         {
             var clone = GameObject.Instantiate(sourceForCloneButton, sourceForCloneButton.transform.parent);
             clone.onClick.RemoveAllListeners();
@@ -137,7 +137,7 @@ namespace InventoryOrganizingFeatures
 
                             // Check if parent is DefaultInventoryId. It's applicable on items which are equipped on PMC.
                             var parent = item.Parent.Container.ParentItem;
-                            new OrganizedContainer(parent.TemplateId == DefaultInventoryId ? controller.Inventory.Stash :  (CompoundItem)parent, item, controller).Organize(true);
+                            new OrganizedContainer(parent.TemplateId == DefaultInventoryId ? controller.Inventory.Stash :  (LootItemClass)parent, item, controller).Organize(true);
                         }),
                         new Action(DoNothing),
                     };
@@ -173,7 +173,7 @@ namespace InventoryOrganizingFeatures
                 }
                 if (child.name.Equals("Text"))
                 {
-                    child.GetComponent<CustomTextMeshProUGUI>().text = "\u21e7T/O";
+                    child.GetComponent<TextMeshProUGUI>().text = "\u21e7T/O";
                 }
             }
             
